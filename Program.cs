@@ -14,7 +14,7 @@ using System.Linq;
             int computerGuess = 50;
             int maxGuess = 100;
             int minGuess = 1;
-            
+            Random rnd = new Random();
             
             
             while (computerGuess != userNumber) {
@@ -24,12 +24,12 @@ using System.Linq;
                 if (userResponse == "Higher") 
                 {
                     minGuess = computerGuess + 1;
-                    computerGuess = ((maxGuess - minGuess) / 2) + computerGuess;
+                    computerGuess = rnd.Next(minGuess, maxGuess + 1);
                 }
                 if (userResponse == "Lower") 
                 {
                     maxGuess = computerGuess - 1;
-                    computerGuess = computerGuess / 2;
+                    computerGuess = rnd.Next(minGuess, maxGuess + 1);
                 }
             }
             Console.WriteLine("Your number was " + userNumber);
